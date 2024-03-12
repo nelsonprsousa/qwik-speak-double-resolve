@@ -1,0 +1,7 @@
+{
+  "app": {
+    "title": "{{name}} demo"
+  },
+  "dates": "Dates",
+  "numbers": "Numbers"
+}

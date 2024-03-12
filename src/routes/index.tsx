@@ -5,13 +5,26 @@ import Counter from "../components/starter/counter/counter";
 import Hero from "../components/starter/hero/hero";
 import Infobox from "../components/starter/infobox/infobox";
 import Starter from "../components/starter/next-steps/next-steps";
+import { inlineTranslate, useFormatDate, useFormatNumber } from "qwik-speak";
 
 export default component$(() => {
+  const t = inlineTranslate();
+
+  const fd = useFormatDate();
+  const fn = useFormatNumber();
   return (
     <>
       <Hero />
       <Starter />
+      <div>
+        <h1>{t("app.title@@{{name}} demo", { name: "Qwik Speak" })}</h1>
 
+        <h3>{t("dates@@Dates")}</h3>
+        <p>{fd(Date.now(), { dateStyle: "full", timeStyle: "short" })}</p>
+
+        <h3>{t("numbers@@Numbers")}</h3>
+        <p>{fn(1000000, { style: "currency" })}</p>
+      </div>
       <div role="presentation" class="ellipsis"></div>
       <div role="presentation" class="ellipsis ellipsis-purple"></div>
 
